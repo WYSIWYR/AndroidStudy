@@ -1,0 +1,14 @@
+Activity
+앱의 한 화면이다.
+화면이 바뀐다는 것은 액티비티가 바뀐다는 것이다
+액티비티는 Life Cycle(수명 주기)가 있다!!
+생명주기 콜백은 특정한 동작이 발생했을 경우 액티비티에 알려준다.
+onCreate(): 앱이 최초로 실행될 때 실행된다. 초기화 작업들을 여기서 해준다,
+onStart(),
+onResume(): 다시 액티비티으로 돌아올 때 무조건 호출 된다,
+onPause(): 액티비티의 일부분이 보이지 않을 때 ex) 실행 중인 앱들을 볼 때,
+onStop(): 액티비티가 완전히 보이지 않을 때 ex) 홈 버튼을 눌렀을 때,
+onDestroy()
+메인 액티비티에서 하위 액티비티로 이동할 때는 onPause(상위)->onCreate(하위)->onStart(하위)->onResume(하위)->onStop(상위) 식으로 실행된다.
+하위 액티비티에서 메인 액티비티로 이동할 때는 onPause(하위)->onRestart(상위)->onStart(상위)->onResume(상위)->onStop(하위)->onDestroy(하위) 식으로 실행된다.
+참고: https://developer.android.com/guide/components/activities/activity-lifecycle
