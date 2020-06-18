@@ -5,7 +5,11 @@ Fragment
 
 - Fragment는 액티비티에 종속적이며 고유의 라이프 사이클을 가지고있다.
 onAttach() -> onCreate() -> onCreateView() -> onActivityCreated() -> onStart() -> onResume()
--> onPause -> onStop() -> onDestroyView() -> onDestroy() -> onDetach()
+-> onPause() -> onStop() -> onDestroyView() -> onDestroy() -> onDetach()
 
 onDestroyView는 특정 상황에 onCreateView로 이동한다(the fragment returns to the layout from the back stack
 -> fragment가 back stack에 있는 레이아웃을 반환할 때).
+
+Fragment 사용방법
+1. XML에 ViewComponent로 추가한다.
+2. 코드(동적)으로 추가한다.
