@@ -13,17 +13,23 @@
         android:textSize="50sp"
         android:layout_gravity="center"/>
 
-    <fragment
+<!--    <fragment
         android:id="@+id/fragment_1"
         android:name="com.example.project01.Fragment_1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"/>-->
 
     <Button
         android:id="@+id/call_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fragment 호출!"/>
+
+    <Button
+        android:id="@+id/remove_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fragment 제거!"/>
 
     <LinearLayout
         android:id="@+id/container"

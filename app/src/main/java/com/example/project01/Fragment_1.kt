@@ -17,6 +17,8 @@ class Fragment_1: Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("life_cycle", "onCreate_Fragment")
+        val data = arguments?.getString("안냥")
+        Log.d("data", data)
     }
 
     /*
