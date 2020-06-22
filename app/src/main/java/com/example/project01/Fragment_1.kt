@@ -7,11 +7,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_1.*
 
 class Fragment_1: Fragment() {
+    interface OnDataPassListener {
+        fun onDataPass  (data: String?)
+    }
+
+    //지연 초기화 lateinit
+    lateinit var dataPassListener: OnDataPassListener
+
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         Log.d("life_cycle", "onAttach_Fragment")
+        dataPassListener = context as OnDataPassListener
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +48,13 @@ class Fragment_1: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d("life_cycle", "onViewCreated_Fragment")
+
+        /*
+        프래그먼트는 액티비티의 onCreate에서 했던 작업을 여기에서 한다.
+         */
+        passer.setOnClickListener {
+            dataPassListener.onDataPass("Hellow")
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

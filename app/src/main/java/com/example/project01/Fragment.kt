@@ -6,7 +6,11 @@ import android.util.Log
 import androidx.fragment.app.FragmentManager
 import kotlinx.android.synthetic.main.activity_fragment.*
 
-class Fragment : AppCompatActivity() {
+class Fragment : AppCompatActivity(), Fragment_1.OnDataPassListener {
+    override fun onDataPass(data: String?) {
+        Log.d("pass", "" + data)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragment)
@@ -35,7 +39,7 @@ class Fragment : AppCompatActivity() {
         -> 둘이 거의 동일하다.
          */
         call_fragment.setOnClickListener {
-            val fragmentManager:FragmentManager = supportFragmentManager
+            val fragmentManager: FragmentManager = supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
             fragmentTransaction.replace(R.id.container, fragment_1)
             fragmentTransaction.commit()
@@ -47,7 +51,7 @@ class Fragment : AppCompatActivity() {
         2. remove: 생성한 프래그먼트를 완전히 제거한다. 컨테이너에 추가된 경우 뷰도 제거한다. onDetach()까지 실행
          */
         remove_fragment.setOnClickListener {
-            val fragmentManager:FragmentManager = supportFragmentManager
+            val fragmentManager: FragmentManager = supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
             fragmentTransaction.remove(fragment_1)
             fragmentTransaction.commit()
