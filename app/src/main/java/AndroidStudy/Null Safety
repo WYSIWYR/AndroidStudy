@@ -1,0 +1,18 @@
+Null
+- 값, 데이터, 객체가 존재 하지 않거나 모르는 상태
+- Null을 가지고 연산을 하거나 메서드를 호출하면 NullPointerExceptionError가 발생한다.
+
+Null Safety
+- 코틀린의 특징으로 Null에 대해 안전하다라는 것을 의미한다.
+
+Safe Calls
+- 코틀린은 Null에서 안전한 호출 방법이 있다.
+- 문법
+1. ?: 호출하는 부분이 null이 아닐 경우 실행한다.
+button?.setOnClickListener
+
+2. !!: 호출하는 부분이 null이 아니라는 것을 보장한다. 확실하지 않을 경우 사용 x 오류가 발생한다.
+button!!.setOnClickListener
+
+프로그램에 Null이 팔요할 경우가 있는데 자료형 뒤에 ?를 붙혀준다.
+ex) val num: Int?
