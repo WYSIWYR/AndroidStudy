@@ -3,22 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddViewActivity"
+    android:background="#9C27B0"
     android:orientation="horizontal"
-    android:layout_marginBottom="10dp">
+    tools:context=".AddViewActivity"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/car_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="60sp"/>
+        android:textColor="#ffffff"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/car_engine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="60sp"/>
+        android:textColor="#ffffff"
+        android:textSize="30sp" />
 
 </LinearLayout>
