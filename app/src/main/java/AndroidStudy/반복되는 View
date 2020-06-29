@@ -12,5 +12,9 @@ addView 사용 방법
     4. 1~4을 반복한다.
 2. ListView: 예전에 많이 사용됐다. 보여지는 부분만 그리고 필요할 경우 추가로 그린다.
     1. Item의 틀인 xml을 만들어 준다.
-    2. Adapter를 이용한다.
-3. RecycleView: 최근에 가장 많이 사용되고 있고 가장 효율이 높다.
+    2. Adapter를 이용해 item을 추가한다.
+3. RecycleView: 최근에 가장 많이 사용되고 있고 가장 효율이 높다. ListView의 개선판이다. 레이아웃을 유연하게
+구성할 수 있다(LayoutManager를 직접 관리할 수 있다). Linear, Grid, StaggeredGrid로 만들 수 있다. 성능이
+ListView보다 성능이 조금 더 좋다.
+    1. Item의 틀인 xml을 만들어 준다.
+    2. Adapter를 이용해 item을 추가한다.
