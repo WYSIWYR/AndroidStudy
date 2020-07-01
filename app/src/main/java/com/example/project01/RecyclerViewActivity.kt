@@ -2,10 +2,12 @@ package com.example.project01
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_recycler_view.*
@@ -22,7 +24,8 @@ class RecyclerViewActivity : AppCompatActivity() {
         }
         val adapter = RecyclerViewAdapter(carList, LayoutInflater.from(this@RecyclerViewActivity))
         recycler_view.adapter = adapter
-        recycler_view.layoutManager = LinearLayoutManager(this@RecyclerViewActivity)
+//        recycler_view.layoutManager = LinearLayoutManager(this@RecyclerViewActivity)
+        recycler_view.layoutManager = GridLayoutManager(this@RecyclerViewActivity,2)
     }
 }
 
@@ -36,13 +39,18 @@ class RecyclerViewAdapter (
     /*
     뷰를 받아와 carName, carEngine을 초기화한다.
      */
-    class ViewHolder(carView: View): RecyclerView.ViewHolder(carView) {
+    inner class ViewHolder(carView: View): RecyclerView.ViewHolder(carView) {
         val carName: TextView
         val carEngine: TextView
 
         init {
             carName = carView.car_name
             carEngine = carView.car_engine
+            carView.setOnClickListener {
+                val position = adapterPosition
+                val carEngine = carList.get(position).engine
+                Log.d("engine", carEngine)
+            }
         }
     }
 

@@ -10,18 +10,20 @@
 
     <TextView
         android:id="@+id/car_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0sp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="#ffffff"
-        android:textSize="30sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/car_engine"
-        android:layout_width="match_parent"
+        android:layout_width="0sp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="#ffffff"
-        android:textSize="30sp" />
+        android:textSize="20sp" />
 
 </LinearLayout>
