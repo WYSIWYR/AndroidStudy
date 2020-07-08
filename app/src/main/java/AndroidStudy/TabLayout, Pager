@@ -1,0 +1,7 @@
+TabLayout
+- 화면에 Tab을 나타낸다
+
+Pager
+- 화면을 책을 넘기듯이 넘겨주는 역할
+
+Adapter를 통해 TabLayout과 Pager를 연결한다.

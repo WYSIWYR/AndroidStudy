@@ -17,7 +17,7 @@ class Fragment_1: Fragment() {
     //지연 초기화 lateinit
     lateinit var dataPassListener: OnDataPassListener
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         Log.d("life_cycle", "onAttach_Fragment")
         dataPassListener = context as OnDataPassListener
