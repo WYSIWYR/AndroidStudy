@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SharedPreferenceActivity">
+
+    <Button
+        android:id="@+id/spSaveButton"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:text="저장" />
+
+    <Button
+        android:id="@+id/spLoadButton"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:text="불러오기" />
+
+    <Button
+        android:id="@+id/spDeleteButton"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:text="일부 삭제" />
+
+    <Button
+        android:id="@+id/spDeleteAllButton"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:text="전체 삭제" />
+
+</LinearLayout>
