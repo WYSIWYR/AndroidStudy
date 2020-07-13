@@ -9,14 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SharedPreferenceActivity">
+        <activity android:name=".AsyncActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TabLayoutPager2"/>
+        <activity android:name=".RealmActivity"/>
+        <activity android:name=".SharedPreferenceActivity" />
+        <activity android:name=".TabLayoutPager2" />
         <activity android:name=".TabLayoutPagerActivity" />
         <activity android:name=".ContactRecyclerView" />
         <activity android:name=".RecyclerViewActivity" />
