@@ -14,4 +14,9 @@ interface RetrofitService{
     fun createStudent(
         @Body student: Student
     ): Call<Student>
+
+    @POST("user/signup/")
+    fun signUp(
+        @Body signUp: SignUp
+    ): Call<User>
 }
