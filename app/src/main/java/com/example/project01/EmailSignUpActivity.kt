@@ -2,6 +2,7 @@ package com.example.project01
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -16,45 +17,60 @@ class EmailSignUpActivity : AppCompatActivity() {
     lateinit var userPwdView: EditText
     lateinit var userPwdConfirmView: EditText
     lateinit var signUpBtn: Button
+    lateinit var signInBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_email_sign_up)
-        SetListener()
+
+        if ((application as MasterApplication).checkSignIn()) {
+            startActivity(
+                Intent(this@EmailSignUpActivity, PostListActivity::class.java)
+            )
+        } else {
+            setContentView(R.layout.activity_email_sign_up)
+            initView(this@EmailSignUpActivity)
+            setListener(this@EmailSignUpActivity)
+        }
+        //chrome://inspect/#devices
     }
 
-    fun InitView(activity: Activity) {
+    fun initView(activity: Activity) {
         userIdView = activity.findViewById(R.id.userId)
         userPwdView = activity.findViewById(R.id.userPwd)
         userPwdConfirmView = activity.findViewById(R.id.userPwdConfirm)
         signUpBtn = activity.findViewById(R.id.signUp)
+        signInBtn = activity.findViewById(R.id.signIn)
     }
 
-    fun GetUserId(): String {
+    fun getUserId(): String {
         return userIdView.text.toString()
     }
 
-    fun GetUserPwd(): String {
+    fun getUserPwd(): String {
         return userPwdView.text.toString()
     }
 
-    fun GetUserPwdConfirm(): String {
+    fun getUserPwdConfirm(): String {
         return userPwdConfirmView.text.toString()
     }
 
-    fun SetListener() {
+    fun setListener(activity: Activity) {
         signUpBtn.setOnClickListener {
-            SignUp()
+            signUp(activity)
+        }
+        signInBtn.setOnClickListener {
+            startActivity(
+                Intent(this@EmailSignUpActivity, SignInActivity::class.java)
+            )
         }
     }
 
-    fun SignUp(activity: Activity) {
-        val userId = userIdView.text.toString()
-        val userPwd = userPwdView.text.toString()
-        val userPwdConfirm = userPwdConfirmView.text.toString()
-        val signUp = SignUp(userId, userPwd, userPwdConfirm)
+    fun signUp(activity: Activity) {
+        val userId = getUserId()
+        val userPwd = getUserPwd()
+        val userPwdConfirm = getUserPwdConfirm()
 
-        (application as MasterApplication).service.signUp(signUp).enqueue(object : Callback<User> {
+        (application as MasterApplication).service.signUp(userId, userPwd, userPwdConfirm).enqueue(object : Callback<User> {
             override fun onFailure(call: Call<User>, t: Throwable) {
                 Toast.makeText(activity, "회원 가입에 실패 했습니다.", Toast.LENGTH_LONG).show()
             }
@@ -64,13 +80,17 @@ class EmailSignUpActivity : AppCompatActivity() {
                     Toast.makeText(activity, "회원 가입에 성공 했습니다.", Toast.LENGTH_LONG).show()
                     val user = response.body()
                     val token = user!!.token!!
-                    SaveUserToken(token, activity)
+                    saveUserToken(token, activity)
+                    (application as MasterApplication).createRetrofit()
+                    activity.startActivity(
+                        Intent(activity, PostListActivity::class.java)
+                    )
                 }
             }
         })
     }
 
-    fun SaveUserToken(token: String, activity: Activity) {
+    fun saveUserToken(token: String, activity: Activity) {
         val sp = activity.getSharedPreferences("SignIn", Context.MODE_PRIVATE)
         val editor = sp.edit()
         editor.putString("IsSignIn", token)

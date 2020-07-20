@@ -50,13 +50,13 @@ class MasterApplication : Application() {
 
     fun checkSignIn(): Boolean {
         val sp = getSharedPreferences("SignIn", Context.MODE_PRIVATE)
-        val token = sp.getString("IsSingIn", "null")
+        val token = sp.getString("IsSignIn", "null")
         return token != "null"
     }
 
     fun getUserToken(): String? {
         val sp = getSharedPreferences("SignIn", Context.MODE_PRIVATE)
-        val token = sp.getString("IsSingIn", "null")
+        val token = sp.getString("IsSignIn", "null")
         return if (token == "null") null
         else token
     }
