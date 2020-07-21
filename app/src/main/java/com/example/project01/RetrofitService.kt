@@ -42,4 +42,10 @@ interface RetrofitService{
 
     @GET("instagram/post/list")
     fun getMyPostList(): Call<ArrayList<Post>>
+
+    @GET("youtube/list")
+    fun getVideoList(): Call<ArrayList<Video>>
+
+    @GET("melon/list")
+    fun getMusicList(): Call<ArrayList<Music>>
 }
